@@ -1,18 +1,72 @@
 package co.edu.unbosque.view;
 
+import java.io.File;
+
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 
 import co.edu.unbosque.controller.Controller;
 
 public class View  extends JFrame{
 	
+	
+	private JSplitPane splitPane;
+	private SelectionPanel selectionPanel;
+	
 	public View(Controller controller) {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(900, 400);
-		this.setTitle("Producto Matrices");
+		this.setTitle("Tokenizador");
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setVisible(true);
+		selectionPanel = new SelectionPanel();
+		
+		splitPane = new JSplitPane();
+		splitPane.setLeftComponent(selectionPanel);
+		splitPane.setRightComponent(new JPanel());
+		splitPane.setEnabled(false);
+		splitPane.setRightComponent(new JPanel());
+		splitPane.setLeftComponent(new JPanel());
+		getContentPane().add(splitPane);
+		assignListeners(controller);
+		repaint();
+		revalidate();
 	}
 
+	public void assignListeners(Controller controller) {
+		this.selectionPanel.getBtnReadFile().addActionListener(null);
+		this.selectionPanel.getBtnUploadCode().addActionListener(null);
+	}
+	
+	public File connectFileChooser() {
+		WindowFileChooser tf = new WindowFileChooser();
+		File fileChooser = tf.checkFile();
+		this.showInformationMessage("The selected file is: " + fileChooser.getName());
+		return fileChooser;
+	}
+	
+	public void showWarningMessage(String message) {
+		JOptionPane.showMessageDialog(null, message, "Mensaje de advertencia", JOptionPane.WARNING_MESSAGE);
+	}
+
+	public void showInformationMessage(String message) {
+		JOptionPane.showMessageDialog(null, message, "Información", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void showErrorMessage(String message) {
+		JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
+	}
+
+	public JSplitPane getSplitPane() {
+		return splitPane;
+	}
+
+	public void setSplitPane(JSplitPane splitPane) {
+		this.splitPane = splitPane;
+	}
+	
+	
 }
