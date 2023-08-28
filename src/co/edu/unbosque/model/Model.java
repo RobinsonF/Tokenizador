@@ -1,7 +1,8 @@
 package co.edu.unbosque.model;
 
 import java.io.File;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import co.edu.unbosque.model.persistence.ReadFileClass;
 import co.edu.unbosque.model.persistence.ReadFileRule;
 
@@ -35,7 +36,15 @@ public class Model {
 			readFileRule = new ReadFileRule(file);
 			this.tokenizer = readFileRule.readFile();
 		}
-	}
+	}	
+	
+	 public String removeComments(String line) {
+	        line = line.replaceAll("//.*", "");
+	        Pattern pattern = Pattern.compile("/\\*.*?\\*/", Pattern.DOTALL);
+	        Matcher matcher = pattern.matcher(line);
+	        line = matcher.replaceAll("");
+			return line;
+	    }
 
 	public String getAllFile() {
 		return allFile;
