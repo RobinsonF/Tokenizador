@@ -17,15 +17,8 @@ public class Controller implements ActionListener{
 	public Controller() {
 		view = new View(this);
 		model = new Model();
-		per = new ReadFileRule();
-		funcionar ();
 	}
 	
-	public void funcionar () {
-		per.readRules();
-			
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
