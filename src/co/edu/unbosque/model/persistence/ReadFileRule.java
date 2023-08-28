@@ -6,7 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import com.arithmeticparser.tokens.Tokenizer;
+import co.edu.unbosque.model.Tokenizer;
+
 
 public class ReadFileRule {
 	
@@ -17,16 +18,14 @@ private File file;
 		this.file = fileC;
 	}
 
-	public String readFile() {
-
+	public Tokenizer readFile() {
 		String line = "";
 		String chain = "";
-
+		Tokenizer tokenizer = new Tokenizer();
 		try {
 			BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 			while ((line = in.readLine()) != null) {
 				String[] splitArray = line.split(";");
-				Tokenizer tokenizer = new Tokenizer();
 				tokenizer.add(splitArray[0],Integer.parseInt(splitArray[2].trim()));
 				chain += line + "\n";
 			}
@@ -34,6 +33,6 @@ private File file;
 		} catch (IOException e) {
 			return null;
 		}
-		return chain;
+		return tokenizer;
 	}
 }

@@ -47,4 +47,11 @@ public class Tokenizer {
         return tokens;
     }
 
+	@Override
+	public String toString() {
+		return "Tokenizer [tokenInfos=" + tokenInfos + ", tokens=" + tokens + "]";
+	}
+    
+    
+
 }

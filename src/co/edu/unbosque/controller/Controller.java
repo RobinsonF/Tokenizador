@@ -12,7 +12,6 @@ public class Controller implements ActionListener{
 	
 	private View view;
 	private Model model;
-	private ReadFileRule per;
 	
 	public Controller() {
 		view = new View(this);
@@ -30,9 +29,10 @@ public class Controller implements ActionListener{
 			
 		}
 		if (command.equals(view.getSelectionPanel().getCOMMAND_READ_FILE())) {
-			view.connectFileChooser();//Seleccionar archivo, devuelve file
-			
-			System.out.print("hola");
+			this.model.uploadFileRule(view.connectFileChooser());
+			Tokenizer tokenizer = this.model.getTokenizer();
+						
+			System.out.print(tokenizer.toString());
 		}
 		
 	}
