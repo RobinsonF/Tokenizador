@@ -30,6 +30,7 @@ public class Controller implements ActionListener{
 			
 			model.uploadFile(view.connectFileChooser());
 			this.codigo = model.getAllFile();
+			this.codigo = model.removeComments(this.codigo);
 			this.view.getShowPanel().getShowPanel().getTxtAreaShow().setText(this.codigo);
 			
 		}
