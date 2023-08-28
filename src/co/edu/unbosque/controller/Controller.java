@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import co.edu.unbosque.model.Model;
+import co.edu.unbosque.model.Tokenizer;
 import co.edu.unbosque.model.persistence.ReadFileRule;
 import co.edu.unbosque.view.View;
 
@@ -36,6 +37,9 @@ public class Controller implements ActionListener{
 			
 		}
 		if (command.equals(view.getSelectionPanel().getCOMMAND_READ_FILE())) {
+			view.connectFileChooser();//Seleccionar archivo, devuelve file
+			
+			System.out.print("hola");
 		}
 		
 	}
