@@ -16,7 +16,10 @@ public class Tokenizer {
     }
 
     public void add(String regex, int token) {
+    	//System.out.println(regex);
         tokenInfos.add(new TokenInfo(Pattern.compile("^(" + regex + ")"), token));
+        System.out.println("tpkañ");
+
     }
 
     public void tokenize(String str) {
@@ -27,8 +30,12 @@ public class Tokenizer {
             System.out.println(s);
             int remaining = s.length();
             boolean match = false;
+            System.out.println("en");
             for (TokenInfo info : tokenInfos) {
+                System.out.println("e4n");
+            	System.out.println(info.toString()+"i");
                 Matcher m = info.regex.matcher(s);
+                System.out.println(m+"m");
                 if (m.find()) {
                     match = true;
                     String tok = m.group().trim();
