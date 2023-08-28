@@ -26,6 +26,7 @@ private File file;
 			BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 			while ((line = in.readLine()) != null) {
 				String[] splitArray = line.split(";");
+				//System.out.println(splitArray[0]);
 				tokenizer.add(splitArray[0],Integer.parseInt(splitArray[2].trim()));
 				chain += line + "\n";
 			}
