@@ -28,8 +28,6 @@ public class View  extends JFrame{
 		splitPane.setLeftComponent(selectionPanel);
 		splitPane.setRightComponent(new JPanel());
 		splitPane.setEnabled(false);
-		splitPane.setRightComponent(new JPanel());
-		splitPane.setLeftComponent(new JPanel());
 		getContentPane().add(splitPane);
 		assignListeners(controller);
 		repaint();
@@ -67,6 +65,13 @@ public class View  extends JFrame{
 	public void setSplitPane(JSplitPane splitPane) {
 		this.splitPane = splitPane;
 	}
-	
+
+	public SelectionPanel getSelectionPanel() {
+		return selectionPanel;
+	}
+
+	public void setSelectionPanel(SelectionPanel selectionPanel) {
+		this.selectionPanel = selectionPanel;
+	}
 	
 }

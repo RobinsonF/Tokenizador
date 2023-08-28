@@ -27,7 +27,16 @@ public class Controller implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		String command = e.getActionCommand();
+
+		if (command.equals(view.getSelectionPanel().getCOMMAND_UPLOAD_CODE())) {
+			
+			model.uploadFile(view.connectFileChooser());
+			System.out.print(model.getAllFile());
+			
+		}
+		if (command.equals(view.getSelectionPanel().getCOMMAND_READ_FILE())) {
+		}
 		
 	}
 	
