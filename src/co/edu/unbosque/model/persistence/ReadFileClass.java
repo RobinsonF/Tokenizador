@@ -21,7 +21,6 @@ public class ReadFileClass {
 
 		String line = "";
 		String chain = "";
-		Tokenizer tokenizer = new Tokenizer();
 
 
 		try {
@@ -29,7 +28,6 @@ public class ReadFileClass {
 			while ((line = in.readLine()) != null) {
 				chain += line + "\n";
 			}
-			tokenizer.tokenize(chain);
 			in.close();
 		} catch (IOException e) {
 			return null;

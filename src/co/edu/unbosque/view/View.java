@@ -14,6 +14,7 @@ public class View  extends JFrame{
 	
 	private JSplitPane splitPane;
 	private SelectionPanel selectionPanel;
+	private MenuPanel showPanel;
 	
 	public View(Controller controller) {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -23,10 +24,11 @@ public class View  extends JFrame{
 		this.setResizable(false);
 		this.setVisible(true);
 		selectionPanel = new SelectionPanel();
+		showPanel = new MenuPanel();
 		
 		splitPane = new JSplitPane();
 		splitPane.setLeftComponent(selectionPanel);
-		splitPane.setRightComponent(new JPanel());
+		splitPane.setRightComponent(showPanel);
 		splitPane.setEnabled(false);
 		getContentPane().add(splitPane);
 		assignListeners(controller);
@@ -73,5 +75,15 @@ public class View  extends JFrame{
 	public void setSelectionPanel(SelectionPanel selectionPanel) {
 		this.selectionPanel = selectionPanel;
 	}
+
+	public MenuPanel getShowPanel() {
+		return showPanel;
+	}
+
+	public void setShowPanel(MenuPanel showPanel) {
+		this.showPanel = showPanel;
+	}
+	
+	
 	
 }
