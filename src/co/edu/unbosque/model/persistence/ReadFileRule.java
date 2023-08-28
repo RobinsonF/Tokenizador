@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ReadFileRule {
 	
 	public static void readRules() {
-		 String filePath = "C:\\Users\\Usuario\\Documents\\septimo\\compiladores\\ejemplo.txt"; 
+		 String filePath = "data\\ejemplo.txt"; 
 		 String line = "";
 	        
 	        try {

@@ -37,8 +37,8 @@ public class View  extends JFrame{
 	}
 
 	public void assignListeners(Controller controller) {
-		this.selectionPanel.getBtnReadFile().addActionListener(null);
-		this.selectionPanel.getBtnUploadCode().addActionListener(null);
+		this.selectionPanel.getBtnReadFile().addActionListener(controller);
+		this.selectionPanel.getBtnUploadCode().addActionListener(controller);
 	}
 	
 	public File connectFileChooser() {
