@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 
@@ -37,8 +38,13 @@ public class ShowPanel extends JPanel{
         panelShowCode.setBorder(titledBorder);
         TitledBorder titledBorder2 = BorderFactory.createTitledBorder("Resultado");
         panelShowResult.setBorder(titledBorder2);
-		this.add(panelShowCode);
-		this.add(panelShowResult);
+        
+        JScrollPane scrollPaneCode = new JScrollPane(panelShowCode);
+        JScrollPane scrollPaneResult = new JScrollPane(panelShowResult);
+        
+        
+		this.add(scrollPaneCode);
+		this.add(scrollPaneResult);
 
 	}
 
